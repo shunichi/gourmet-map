@@ -14,6 +14,7 @@ gem 'spring',        group: :development
 gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
+gem 'simple_form'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.

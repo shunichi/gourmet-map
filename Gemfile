@@ -21,11 +21,11 @@ gem 'acts-as-taggable-on'
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.
   # https://github.com/cldwalker/hirb/issues/81
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-doc'
-  gem 'pry-stack_explorer'
-  gem 'pry-byebug'
+  # gem 'pry'
+  # gem 'pry-rails'
+  # gem 'pry-doc'
+  # gem 'pry-stack_explorer'
+  # gem 'pry-byebug'
   gem 'hirb'
   gem 'hirb-unicode'
   gem 'better_errors'

@@ -9,6 +9,10 @@
 %p
   %b Longitude:
   = @restaurant.longitude
+%p
+  %b Tag list:
+  - @restaurant.tag_list.each do |tag|
+    %span.tag-name= tag
 
 = link_to 'Edit', edit_restaurant_path(@restaurant)
 \|

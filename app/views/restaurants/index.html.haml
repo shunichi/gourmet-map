@@ -4,22 +4,15 @@
   %thead
     %tr
       %th Name
-      %th Latitude
-      %th Longitude
-      %th
-      %th
-      %th
-      
+      %th Tags
+
   %tbody
     - @restaurants.each do |restaurant|
       %tr
-        %td= restaurant.name
-        %td= restaurant.latitude
-        %td= restaurant.longitude
-        %td= link_to 'Show', restaurant
-        %td= link_to 'Edit', edit_restaurant_path(restaurant)
-        %td= link_to 'Destroy', restaurant, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+        %td= link_to restaurant.name, restaurant
+        %td
+          - restaurant.tag_list.each do |tag|
+            %span.tag-name= tag
 %br
 
 = link_to 'New Restaurant', new_restaurant_path

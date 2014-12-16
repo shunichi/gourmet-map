@@ -1,10 +1,10 @@
-%h1 Listing restaurants
+%h1 お店のリスト
 
 %table
   %thead
     %tr
-      %th Name
-      %th Tags
+      %th 名前
+      %th タグ
 
   %tbody
     - @restaurants.each do |restaurant|
@@ -15,4 +15,4 @@
             %span.tag-name= tag
 %br
 
-= link_to 'New Restaurant', new_restaurant_path
+= link_to '新規登録', new_restaurant_path

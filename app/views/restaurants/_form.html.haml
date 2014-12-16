@@ -1,13 +1,11 @@
 = simple_form_for(@restaurant) do |f|
-  = f.error_notification
-
   .form-inputs
-    = f.input :name
-    = f.input :latitude
-    = f.input :longitude
-    = f.input :tag_list
+    = f.input :name, label: '名前'
+    = f.input :latitude, as: :hidden
+    = f.input :longitude, as: :hidden
+    = f.input :tag_list, label: 'タグ'
 
   .form-actions
     = f.button :submit
 
-#map-canvas{data: {lat: @restaurant.latitude, lng: @restaurant.longitude}}
+#map-canvas.editable{data: {lat: @restaurant.latitude, lng: @restaurant.longitude}}

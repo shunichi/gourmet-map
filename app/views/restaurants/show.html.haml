@@ -1,19 +1,16 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b 名前:
   = @restaurant.name
 %p
-  %b Latitude:
-  = @restaurant.latitude
-%p
-  %b Longitude:
-  = @restaurant.longitude
-%p
-  %b Tag list:
+  %b タグ:
   - @restaurant.tag_list.each do |tag|
     %span.tag-name= tag
+%p
+  %b 地図:
+  #map-canvas{data: {lat: @restaurant.latitude, lng: @restaurant.longitude}}
 
-= link_to 'Edit', edit_restaurant_path(@restaurant)
+= link_to '編集', edit_restaurant_path(@restaurant)
 \|
-= link_to 'Back', restaurants_path
+= link_to '戻る', restaurants_path

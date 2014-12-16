@@ -32,7 +32,7 @@ ready = ->
                 console.log event
                 showLocation this.getPosition(), this
 
-    $('#map-canvas').gmap({zoom: 16}).bind 'init', (event, map) ->
+    $('#map-canvas').gmap({zoom: 17}).bind 'init', (event, map) ->
         data = $(this).data()
         latlng = new google.maps.LatLng(data.lat, data.lng)
         addMarker $('#map-canvas'), latlng

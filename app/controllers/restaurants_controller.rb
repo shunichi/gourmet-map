@@ -15,8 +15,6 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
-    @restaurant.latitude = 35.66441072050976
-    @restaurant.longitude = 139.78483870506284
   end
 
   # GET /restaurants/1/edit

@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'default_value_for'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.
@@ -30,6 +31,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'letter_opener'
   gem 'quiet_assets'
+  gem 'bullet'
 end
 
 group :test do

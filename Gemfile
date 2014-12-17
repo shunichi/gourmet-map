@@ -14,21 +14,25 @@ gem 'spring',        group: :development
 gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'default_value_for'
+gem 'acts-as-taggable-on'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.
   # https://github.com/cldwalker/hirb/issues/81
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-doc'
-  gem 'pry-stack_explorer'
-  gem 'pry-byebug'
+  # gem 'pry'
+  # gem 'pry-rails'
+  # gem 'pry-doc'
+  # gem 'pry-stack_explorer'
+  # gem 'pry-byebug'
   gem 'hirb'
   gem 'hirb-unicode'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
   gem 'quiet_assets'
+  gem 'bullet'
 end
 
 group :test do

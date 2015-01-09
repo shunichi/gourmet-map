@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'default_value_for'
 gem 'acts-as-taggable-on'
+gem 'devise'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.

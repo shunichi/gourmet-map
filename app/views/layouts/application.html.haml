@@ -8,10 +8,29 @@
     = csrf_meta_tags
   %body
     %header
-    - unless notice.blank?
-      .alert.alert-success{role:'alert'}= notice
-    - unless alert.blank?
-      .alert.alert-danger{role:'alert'}= alert
+      %nav.navbar.navbar-default{role:'navigation'}
+        .container-fluid
+          .navbar-header
+            %button.navbar-toggle.collapsed{data: {toggle:'collapse', target:'#nav-menu'}}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to 'グルメマップ', root_path, class: 'navbar-brand'
+          .collapse.navbar-collapse#nav-menu
+            %ul.nav.navbar-nav
+              - if user_signed_in?
+                %li= link_to current_user.email, edit_user_registration_path
+            %ul.nav.navbar-nav.navbar-right
+              - if user_signed_in?
+                %li= link_to 'ログアウト', destroy_user_session_path, method: :delete
+              - else
+                %li= link_to 'ログイン', new_user_session_path
+                %li= link_to 'サインアップ', new_user_registration_path
+      - unless notice.blank?
+        .alert.alert-success{role:'alert'}= notice
+      - unless alert.blank?
+        .alert.alert-danger{role:'alert'}= alert
     .container
       = yield
 

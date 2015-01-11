@@ -9,24 +9,34 @@
   %body
     %header
       %nav.navbar.navbar-default{role:'navigation'}
-        .container-fluid
+        .container
           .navbar-header
-            %button.navbar-toggle.collapsed{data: {toggle:'collapse', target:'#nav-menu'}}
-              %span.sr-only Toggle navigation
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
             = link_to 'グルメマップ', root_path, class: 'navbar-brand'
-          .collapse.navbar-collapse#nav-menu
-            %ul.nav.navbar-nav
-              - if user_signed_in?
-                %li= link_to current_user.email, edit_user_registration_path
-            %ul.nav.navbar-nav.navbar-right
-              - if user_signed_in?
-                %li= link_to 'ログアウト', destroy_user_session_path, method: :delete
-              - else
-                %li= link_to 'ログイン', new_user_session_path
-                %li= link_to 'サインアップ', new_user_registration_path
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li.dropdown
+                = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+                  %span.glyphicon.glyphicon-user
+                  = current_user.name
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    = link_to destroy_user_session_path, method: :delete do
+                      %span.glyphicon.glyphicon-log-out
+                      ログアウト
+                  %li
+                    = link_to edit_user_registration_path do
+                      %span.glyphicon.glyphicon-user
+                      アカウント情報
+            - else
+              %li
+                = link_to new_user_session_path do
+                  %span.glyphicon.glyphicon-log-in
+                  ログイン
+              %li
+                = link_to new_user_registration_path do
+                  %span.glyphicon.glyphicon-ok
+                  サインアップ
       - unless notice.blank?
         .alert.alert-success{role:'alert'}= notice
       - unless alert.blank?

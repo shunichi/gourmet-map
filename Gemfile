@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'default_value_for'
 gem 'acts-as-taggable-on'
 gem 'devise'
+gem 'rails-i18n'
+gem 'devise-i18n'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.

@@ -51,3 +51,6 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include AuthenticationMacros
 end
+
+# locale ja で Faker が変なメールアドレスを生成する問題対策
+Faker::Config.locale = :en

@@ -1,22 +1,8 @@
-%h1 お店のリスト
-
-%table
-  %thead
-    %tr
-      %th 名前
-      %th タグ
-
-  %tbody
-    - @restaurants.each do |restaurant|
-      %tr
-        %td= link_to restaurant.name, restaurant
-        %td
-          - restaurant.tag_list.each do |tag|
-            %span.tag-name= tag
-%br
-
-= link_to '新規登録', new_restaurant_path
-
-#map-canvas-index
-
-%hide#restaurants-data{data: { restaurants: restaurants_to_data(@restaurants) }}
+.row
+  .col-md-4
+    .restaurants__restaurants_list
+      %ul.list-group
+        = render @restaurants
+  .col-md-8
+    #map-canvas-index
+    %hide#restaurants-data{data: { restaurants: restaurants_to_data(@restaurants) }}

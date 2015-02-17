@@ -7,37 +7,32 @@ ready = ->
     elm.gmap 'search', { location: loc }, (results, status) ->
       if status == 'OK'
         marker.setTitle results[0].formatted_address
-        console.log results[0].formatted_address
-        $.each results[0].address_components, (i, v) ->
-          console.log v
         elm.gmap 'openInfoWindow', { content: marker.getTitle() }, marker
-  addMarker = (elm, latlng, draggable) ->
+  addMarker = (elm, latlng, name, bounds = false) ->
     elm.gmap 'addMarker', {
         position: latlng,
         draggable: elm.hasClass('editable'),
-        bounds: false,
-      }, (map, marker) ->
-        console.log('marker added')
-        console.log marker
-        showLocation elm, marker.getPosition(), marker
+        bounds: bounds,
+      }
       .dragend (event) ->
-        console.log 'drag end'
-        console.log event
         latLng = this.getPosition()
         $('#restaurant_latitude').val(latLng.lat())
         $('#restaurant_longitude').val(latLng.lng())
-        showLocation elm, this.getPosition(), this
       .click (event) ->
-        console.log 'click'
-        console.log event
-        showLocation elm, this.getPosition(), this
+        elm.gmap 'openInfoWindow', { content: name }, this if name?
 
   $('#map-canvas').gmap({zoom: 17}).bind 'init', (event, map) ->
     self = $(this)
     data = self.data()
     latlng = new google.maps.LatLng(data.lat, data.lng)
-    addMarker self, latlng, true
+    addMarker self, latlng, data.name
     map.setCenter latlng
+
+  $('#map-canvas-index').gmap().bind 'init', (event, map) ->
+    self = $(this)
+    $('#restaurants-data').data().restaurants.forEach (r,i) ->
+      latlng = new google.maps.LatLng  r.latitude, r.longitude
+      addMarker self, latlng, $('<a>').attr( 'href', r.url ).text(r.name)[0], true
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

@@ -9,7 +9,7 @@
     %span.tag-name= tag
 %p
   %b 地図:
-  #map-canvas{data: {lat: @restaurant.latitude, lng: @restaurant.longitude}}
+  #map-canvas{data: {lat: @restaurant.latitude, lng: @restaurant.longitude, name: @restaurant.name}}
 
 = link_to '編集', edit_restaurant_path(@restaurant)
 \|

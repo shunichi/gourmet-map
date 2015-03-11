@@ -14,6 +14,7 @@ gem 'spring',        group: :development
 gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
+gem 'compass-rails'
 gem 'simple_form'
 gem 'default_value_for'
 gem 'acts-as-taggable-on'

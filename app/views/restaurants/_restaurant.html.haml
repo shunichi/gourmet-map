@@ -1,7 +1,10 @@
-%li.list-group-item
-  .restaurant
-    .restaurants__restaurant_name
-      = link_to restaurant.name, restaurant
-    .restaurants__restaurant_tags
-      - restaurant.tag_list.each do |tag|
-        %span.tag-name= tag
+.restaurants__detail-header
+  .restaurants__detail-name
+    =restaurant.name
+  .restaurants__detail-tags
+    - restaurant.tag_list.each do |tag|
+      %span.tag-name= tag
+.restaurants__detail-main
+  ここに説明が書かれる
+.restaurants__detail-reviews
+  ここにレビューが書かれる

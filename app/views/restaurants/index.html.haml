@@ -1,8 +1,11 @@
 .row
-  .col-md-4
+  .restaurants__sidebar.col-md-4
     .restaurants__restaurants_list
       %ul.list-group
-        = render @restaurants
-  .col-md-8
+        - @restaurants.each do |restaurant|
+          = render 'restaurants/list_item', restaurant: restaurant
+  .restaurants__main.col-md-8
     #map-canvas-index
     %hide#restaurants-data{data: { restaurants: restaurants_to_data(@restaurants) }}
+    .restaurants__detail
+      店詳細

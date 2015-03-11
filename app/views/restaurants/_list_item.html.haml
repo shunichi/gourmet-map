@@ -1,0 +1,8 @@
+%li.list-group-item.restaurants__restaurant
+  = link_to restaurant, class: 'restaurants__restaurant_link', remote: true do
+    = image_tag '/noimage.jpg', class: 'restaurants__restaurant_icon'
+    .restaurants__restaurant_container
+      %p.restaurants__restaurant_name= restaurant.name
+      %p.restaurants__restaurant_tags
+        - restaurant.tag_list.each do |tag|
+          %span.tag-name= tag

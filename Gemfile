@@ -21,10 +21,10 @@ gem 'acts-as-taggable-on'
 gem 'devise'
 gem 'rails-i18n'
 gem 'devise-i18n'
-# gem 'dotenv'
-# gem 'carrierwave'
-# gem 'rmagick'
-# gem 'fog'
+gem 'dotenv'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'fog'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.

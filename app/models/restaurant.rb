@@ -1,4 +1,6 @@
 class Restaurant < ActiveRecord::Base
+  has_many :reviews
+
   acts_as_taggable
 
   default_value_for :latitude, 35.66441072050976

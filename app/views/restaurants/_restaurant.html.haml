@@ -13,5 +13,11 @@
 .restaurants__detail-reviews-container
   %p.restaurants__detail-reviews-header
     レビュー:
-  .restaurants__detail-reviews
-    レビューがここに書かれます。
+  %ul.restaurants__detail-reviews{data: {restaurant_id: restaurant.id}}
+    - restaurant.reviews.order(created_at: :desc).each do |review|
+      = render 'reviews/review', review: review
+  - if user_signed_in?
+    - new_review = restaurant.reviews.build(user_id: current_user.id)
+    = simple_form_for [restaurant, new_review], remote: true do |f|
+      = f.input :body, label: '新しいレビュー', input_html: { class: 'js-new-review-textarea' }
+      = f.button :submit, class: 'btn btn-primary btn-sm'

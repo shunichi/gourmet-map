@@ -1,0 +1,10 @@
+%li.reviews__review-list-item{data: {review_id: review.id}}
+  .reviews__review-body
+    = review.body
+  .reviews__review-user-container
+    %span.reviews__review-user-name
+      = review.user.name
+    %span.reviews__review-created-time
+      \| 投稿時間: #{l review.created_at} |
+    - if review.user == current_user
+      = link_to '削除', [review.restaurant, review], method: :delete, remote: true, class: 'btn btn-link btn-sm', data: {confirm: '削除してもいいですか？' }

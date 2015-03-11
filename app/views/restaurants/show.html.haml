@@ -1,16 +1,1 @@
-%p#notice= notice
-
-%p
-  %b 名前:
-  = @restaurant.name
-%p
-  %b タグ:
-  - @restaurant.tag_list.each do |tag|
-    %span.tag-name= tag
-%p
-  %b 地図:
-  #map-canvas{data: {lat: @restaurant.latitude, lng: @restaurant.longitude, name: @restaurant.name}}
-
-= link_to '編集', edit_restaurant_path(@restaurant)
-\|
-= link_to '戻る', restaurants_path
+= render 'restaurant', restaurant: @restaurant, show_map: true

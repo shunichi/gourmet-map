@@ -4,8 +4,10 @@
     = f.input :latitude, as: :hidden
     = f.input :longitude, as: :hidden
     = f.input :tag_list, label: 'タグ'
+    = f.input :description, label: '紹介文'
+
+  #map-canvas.editable{data: {lat: @restaurant.latitude, lng: @restaurant.longitude}}
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn-primary'
 
-#map-canvas.editable{data: {lat: @restaurant.latitude, lng: @restaurant.longitude}}

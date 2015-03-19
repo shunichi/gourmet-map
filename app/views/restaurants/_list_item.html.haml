@@ -1,6 +1,6 @@
 %li.list-group-item.restaurants__restaurant{data: {id: restaurant.id }}
   = link_to restaurant, class: 'restaurants__restaurant_link', remote: true do
-    = image_tag '/noimage.jpg', class: 'restaurants__restaurant_icon'
+    = image_tag restaurant.thumnail_url, class: 'restaurants__restaurant_icon'
     .restaurants__restaurant_container
       %p.restaurants__restaurant_name= restaurant.name
       %p.restaurants__restaurant_tags

@@ -9,7 +9,7 @@ ready = ->
         marker.setTitle results[0].formatted_address
         elm.gmap 'openInfoWindow', { content: marker.getTitle() }, marker
   addMarker = (elm, latlng, name, id, bounds = false) ->
-    elm.gmap 'addMarker',
+    m = elm.gmap 'addMarker',
       id: id
       position: latlng
       draggable: elm.hasClass('editable')
@@ -21,23 +21,26 @@ ready = ->
     .click (event) ->
       elm.gmap 'openInfoWindow', { content: name }, this if name?
 
-  $('#map-canvas').gmap({zoom: 17}).bind 'init', (event, map) ->
+  $('#map-canvas').gmap({zoom: 17, scrollwheel: false}).bind 'init', (event, map) ->
     self = $(this)
     data = self.data()
     latlng = new google.maps.LatLng(data.lat, data.lng)
     addMarker self, latlng, data.name, data.id
     map.setCenter latlng
 
-  $('#map-canvas-index').gmap().bind 'init', (event, map) ->
+  $('#map-canvas-index').gmap({scrollwheel: false}).bind 'init', (event, map) ->
     self = $(this)
     $('#restaurants-data').data().restaurants.forEach (r,i) ->
       latlng = new google.maps.LatLng  r.latitude, r.longitude
       addMarker self, latlng, $('<a>').attr( 'href', r.url ).text(r.name)[0], r.id, true
 
   GRM.showInfo = (markerId) ->
-    $('#map-canvas-index').gmap 'find', 'markers', {}, (marker) ->
-      if marker.id == markerId
-        $(marker).triggerEvent 'click'
+    markers = $('#map-canvas-index').gmap 'get', 'markers'
+    marker = markers[markerId]
+    $(marker).triggerEvent 'click' if marker?
+#    $('#map-canvas-index').gmap 'find', 'markers', {}, (marker) ->
+#      if marker.id == markerId
+#        $(marker).triggerEvent 'click'
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

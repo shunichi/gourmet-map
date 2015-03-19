@@ -1,13 +1,17 @@
 - show_map ||= false
 .restaurants__detail-header
-  = link_to restaurant.name, restaurant, class: 'restaurants__detail-name'
-  - if user_signed_in?
-    = link_to '編集', edit_restaurant_path(@restaurant), class: 'btn btn-primary btn-sm pull-right'
-  .restaurants__detail-tags
-    - restaurant.tag_list.each do |tag|
-      %span.tag-name= tag
-.restaurants__detail-description
-  = restaurant.description
+  .restaurants__image_frame{style: "background:url(#{restaurant.image_url}) no-repeat center; background-size: cover"}
+  .restaurants__detail-container
+    = link_to restaurant.name, restaurant, class: 'restaurants__detail-name'
+    - if user_signed_in?
+      = link_to '編集', edit_restaurant_path(@restaurant), class: 'btn btn-warning btn-xs'
+    .restaurants__detail-tags
+      %span.restaurants__tags-label
+        タグ:
+      - restaurant.tag_list.each do |tag|
+        %span.tag-name= tag
+    .restaurants__detail-description
+      = restaurant.description
 - if show_map
   #map-canvas{data: {lat: restaurant.latitude, lng: restaurant.longitude, name: restaurant.name}}
 .restaurants__detail-reviews-container

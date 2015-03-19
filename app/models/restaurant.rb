@@ -9,4 +9,14 @@ class Restaurant < ActiveRecord::Base
   validates :name, presence: true
   validates :latitude, presence: true
   validates :longitude, presence: true
+
+  mount_uploader :image, ImageUploader
+
+  def image_url
+    image.present? ? image.url : '/noimage.jpg'
+  end
+
+  def thumnail_url
+    image.present? ? image.thumb.url : '/noimage.jpg'
+  end
 end

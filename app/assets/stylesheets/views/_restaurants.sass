@@ -8,25 +8,19 @@
   height: 200px
   margin-bottom: 12px
 
+.restaurants__container
+  display: flex
+
 .restaurants__sidebar
+  flex: 0 0 300px
+  overflow: hidden
 
 .restaurants__main
+  flex-grow: 1
+  margin: 0 12px
 
-.restaurants__restaurant
-
-.restaurants__restaurant_link
-  height: 80px
-  padding: 10px 15px
-  display: block
-  cursor: pointer
-  &:hover
-    background-color: #eee
-
-.restaurants__restaurant_icon
-  width: 60px
-  height: 60px
-  margin-right: 12px
-  float: left
+.restaurants__detail
+  overflow: hidden
 
 .restaurants__image_frame
   display: inline-block
@@ -39,9 +33,6 @@
 .restaurants__image
   height: 100%
 
-.restaurants__restaurant_name
-  font-size: large
-  margin-bottom: 4px
 
 .restaurants__detail-header
   +clearfix
@@ -79,5 +70,4 @@
   text-decoration: none
   font-size: 60%
   line-height: 1.4
-  white-space: nowrap
   display: inline-block

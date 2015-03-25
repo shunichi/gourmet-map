@@ -25,6 +25,7 @@ gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
+gem 'nicescroll-rails'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.

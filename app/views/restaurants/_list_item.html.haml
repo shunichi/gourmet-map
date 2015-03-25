@@ -1,8 +1,17 @@
-%li.list-group-item.restaurants__restaurant{data: {id: restaurant.id }}
-  = link_to restaurant, class: 'restaurants__restaurant_link', remote: true do
-    = image_tag restaurant.thumnail_url, class: 'restaurants__restaurant_icon'
-    .restaurants__restaurant_container
-      %p.restaurants__restaurant_name= restaurant.name
-      %p.restaurants__restaurant_tags
+%li.restaurants-list__item{data: {id: restaurant.id }}
+  = link_to restaurant, class: 'restaurants-list__item-link', remote: true do
+    = image_tag restaurant.thumnail_url, class: 'restaurants-list__item-image'
+    .restaurants-list__info-container
+      .restaurants-list__item-name= restaurant.name
+      .restaurants-list__updated-date
+        更新日: #{l restaurant.updated_at.to_date}
+      .restaurants-list__tags
         - restaurant.tag_list.each do |tag|
           %span.tag-name= tag
+    .restaurants-list__review-count
+      レビュー
+      %br
+      %span.restaurants-list__review-count-num
+        #{restaurant.reviews.count}
+      件
+

@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @restaurants = @restaurants.tagged_with(params[:tag]) if params[:tag]
   end
 
   def show

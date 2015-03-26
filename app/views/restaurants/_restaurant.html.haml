@@ -9,7 +9,8 @@
       %span.restaurants__tags-label
         タグ:
       - restaurant.tag_list.each do |tag|
-        %span.tag-name= tag
+        = link_to restaurants_path(tag: tag) do
+          %span.tag-name= tag
     .restaurants__detail-description
       = restaurant.description
 - if show_map

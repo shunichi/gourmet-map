@@ -12,6 +12,7 @@ class Restaurant < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+
   def image_url
     image.present? ? image.url : '/noimage.jpg'
   end

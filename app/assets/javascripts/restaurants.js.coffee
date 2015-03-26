@@ -33,6 +33,8 @@ ready = ->
     $('#restaurants-data').data().restaurants.forEach (r,i) ->
       latlng = new google.maps.LatLng  r.latitude, r.longitude
       addMarker self, latlng, $('<a>').attr( 'href', r.url ).text(r.name)[0], r.id, true
+    zoom = map.getZoom()
+    map.setZoom( if zoom > 17 then 17 else zoom )
 
   GRM.showInfo = (markerId) ->
     markers = $('#map-canvas-index').gmap 'get', 'markers'

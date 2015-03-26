@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :reviews, only: %i(create update destroy)
   end
+  resources :tags, only: %i(index)
 end

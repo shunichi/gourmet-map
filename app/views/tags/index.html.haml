@@ -1,0 +1,8 @@
+%h2
+  タグ一覧
+.tags
+  - @tags.each do |tag|
+    = link_to restaurants_path(tag: tag.name) do
+      %span.tag__name= tag
+      %psan.tag__count
+        x #{tag.taggings_count}

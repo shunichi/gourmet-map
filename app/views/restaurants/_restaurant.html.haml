@@ -25,4 +25,4 @@
     - new_review = restaurant.reviews.build(user_id: current_user.id)
     = simple_form_for [restaurant, new_review], remote: true do |f|
       = f.input :body, label: '新しいレビュー', input_html: { class: 'js-new-review-textarea', rows: 5 }
-      = f.button :submit, class: 'btn btn-primary btn-sm'
+      = f.button :submit, class: 'btn btn-primary btn-sm', data: { disable_with: '送信中' }

@@ -13,6 +13,6 @@
   .reviews__review-edit-form.js-toggle-edit-review
     = simple_form_for [review.restaurant, review], remote: true do |f|
       = f.input :body, label: false, input_html: { class: 'js-review-input', rows: 5 }
-      = f.button :submit, '保存', class: 'btn btn-primary btn-sm'
+      = f.button :submit, '保存', class: 'btn btn-primary btn-sm', data: { disable_with: '送信中' }
       = link_to 'キャンセル', '#', class: 'btn btn-default btn-sm js-cancel-edit-review-link'
       .hide.js-review-body>= preserve(html_escape(review.body))

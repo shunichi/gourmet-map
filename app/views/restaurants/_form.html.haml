@@ -10,5 +10,4 @@
   #map-canvas.editable{data: {lat: @restaurant.latitude, lng: @restaurant.longitude}}
 
   .form-actions
-    = f.button :submit, class: 'btn-primary'
-
+    = f.button :submit, class: 'btn-primary', data: { disable_with: '送信中' }

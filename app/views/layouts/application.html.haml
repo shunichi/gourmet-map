@@ -44,4 +44,5 @@
         .alert.alert-danger{role:'alert'}= alert
     .container-fluid
       = yield
+    %div{ class: current_page?(root_path) ? '' : 'footer' }
 

@@ -6,8 +6,7 @@
     - if user_signed_in?
       = link_to '編集', edit_restaurant_path(@restaurant), class: 'btn btn-warning btn-xs'
     .restaurants__detail-tags
-      %span.restaurants__tags-label
-        タグ:
+      %span.restaurants__tags-label= icon('tags')
       - restaurant.tag_list.each do |tag|
         = link_to restaurants_path(tag: tag) do
           %span.tag__name= tag

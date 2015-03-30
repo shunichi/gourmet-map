@@ -14,10 +14,10 @@ class Restaurant < ActiveRecord::Base
 
 
   def image_url
-    image.present? ? image.url : '/noimage.jpg'
+    image.present? ? image.url : '/noimage.png'
   end
 
   def thumnail_url
-    image.present? ? image.thumb.url : '/noimage.jpg'
+    image.present? ? image.thumb.url : '/noimage.png'
   end
 end

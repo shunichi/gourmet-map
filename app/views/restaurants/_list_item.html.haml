@@ -1,8 +1,8 @@
 %li.restaurants-list__item{data: {id: restaurant.id }}
-  = link_to restaurant, class: 'restaurants-list__item-link', remote: true do
+  = link_to '#', class: 'restaurants-list__item-link' do
     = image_tag restaurant.thumnail_url, class: 'restaurants-list__item-image'
   .restaurants-list__info-container
-    = link_to restaurant, class: 'restaurants-list__item-link', remote: true do
+    = link_to '#', class: 'restaurants-list__item-link' do
       .restaurants-list__item-name= restaurant.name
     .restaurants-list__updated-date
       更新日: #{l restaurant.updated_at.to_date}

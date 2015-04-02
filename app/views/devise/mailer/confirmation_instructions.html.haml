@@ -1,4 +1,4 @@
 %p
-  Welcome #{@email}!
-%p You can confirm your account email through the link below:
-%p= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+  #{@email} さん、グルメマップにようこそ。
+%p 以下のリンクで、アカウントのメールアドレスの確認をしてください。
+%p= link_to 'あなたのメールアドレスの確認', confirmation_url(@resource, confirmation_token: @token)

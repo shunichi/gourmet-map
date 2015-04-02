@@ -11,7 +11,7 @@
         = link_to restaurants_path(tag: tag) do
           %span.tag__name= tag
     .restaurants__detail-description
-      = restaurant.description
+      = markdown(restaurant.description)
 - if show_map
   #map-canvas{data: {lat: restaurant.latitude, lng: restaurant.longitude, name: restaurant.name}}
 .restaurants__detail-reviews-container

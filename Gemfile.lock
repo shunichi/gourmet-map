@@ -270,6 +270,7 @@ GEM
     rake (10.4.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    redcarpet (3.2.2)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rmagick (2.13.4)
@@ -376,6 +377,7 @@ DEPENDENCIES
   rails (= 4.1.8)
   rails-i18n
   rails_12factor
+  redcarpet
   rmagick
   rspec-rails
   sass-rails (~> 4.0.3)

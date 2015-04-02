@@ -1,7 +1,7 @@
 %li.reviews__review-list-item{data: {review_id: review.id}}
   .reivews__review-main.js-toggle-edit-review
     .reviews__review-body
-      = simple_format(review.body)
+      = markdown(review.body)
     .reviews__review-user-container
       %span.reviews__review-user-name
         = review.user.name

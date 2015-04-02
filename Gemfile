@@ -25,6 +25,7 @@ gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
+gem 'redcarpet'
 gem 'nicescroll-rails'
 gem 'growlyflash', '~> 0.6.0'
 

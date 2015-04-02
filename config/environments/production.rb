@@ -69,7 +69,10 @@ Rails.application.configure do
       :user_name => ENV['MANDRILL_USERNAME'],
       :password => ENV['MANDRILL_APIKEY']
   }
-  config.action_mailer.default_url_options = { host: ENV['URL_HOSTNAME'] }
+  config.action_mailer.default_url_options = {
+    host: ENV['URL_HOSTNAME'],
+    protocol: 'https'
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

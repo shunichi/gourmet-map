@@ -26,6 +26,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
 gem 'nicescroll-rails'
+gem 'growlyflash', '~> 0.6.0'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.

@@ -2,6 +2,7 @@
 %html
   %head
     %title グルメマップ
+    = growlyflash_static_notices
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=true"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -38,10 +39,6 @@
                 = link_to new_user_registration_path do
                   %span.glyphicon.glyphicon-ok
                   サインアップ
-      - unless notice.blank?
-        .alert.alert-success{role:'alert'}= notice
-      - unless alert.blank?
-        .alert.alert-danger{role:'alert'}= alert
     .container-fluid
       = yield
     %div{ class: current_page?(root_path) ? '' : 'footer' }

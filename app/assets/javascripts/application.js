@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.nicescroll
+//= require growlyflash
 //= require vendor
 //= require_tree .
 

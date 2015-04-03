@@ -1,4 +1,4 @@
 %p
-  #{@email} さん、グルメマップにようこそ。
-%p 以下のリンクで、アカウントのメールアドレスの確認をしてください。
-%p= link_to 'あなたのメールアドレスの確認', confirmation_url(@resource, confirmation_token: @token)
+  #{@resource.name}さん、グルメマップにようこそ。
+%p 以下のリンクをクリックして、メールアドレスの本人確認をしてください。
+%p= link_to 'メールアドレスの本人確認', confirmation_url(@resource, confirmation_token: @token)

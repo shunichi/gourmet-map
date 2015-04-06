@@ -16,13 +16,17 @@
   - if show_map
     #map-canvas{data: {lat: restaurant.latitude, lng: restaurant.longitude, name: restaurant.name}}
   .restaurants__detail-reviews-container
-    %p.restaurants__detail-reviews-header
-      レビュー:
-    %ul.restaurants__detail-reviews{data: {restaurant_id: restaurant.id}}
-      - restaurant.reviews.order(created_at: :desc).each do |review|
-        = render 'reviews/review', review: review
     - if user_signed_in?
+      %p.restaurants__detail-reviews-header
+        レビュー:
+      %ul.restaurants__detail-reviews{data: {restaurant_id: restaurant.id}}
+        - restaurant.reviews.order(created_at: :desc).each do |review|
+          = render 'reviews/review', review: review
       - new_review = restaurant.reviews.build(user_id: current_user.id)
       = simple_form_for [restaurant, new_review], remote: true do |f|
         = f.input :body, label: '新しいレビュー', input_html: { class: 'js-new-review-textarea', rows: 5 }
         = f.button :submit, class: 'btn btn-primary btn-sm', data: { disable_with: '送信中' }
+    - else
+      %span.restaurant-detail__review-remark
+        レビューはログインしないと見えません。
+

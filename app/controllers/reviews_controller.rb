@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     respond_to do |format|
       if @review.save
+        flash[:notice] = 'レビューを登録しました'
         format.js { render }
       else
         format.js { render 'failed' } # 何これ？
@@ -17,6 +18,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
+        flash[:notice] = 'レビューを更新しました'
         format.js { render }
       else
         format.js { render 'failed' }
@@ -27,6 +29,7 @@ class ReviewsController < ApplicationController
   def destroy
     if @review.user == current_user
       @review.destroy
+      flash[:notice] = 'レビューを削除しました'
     end
   end
 

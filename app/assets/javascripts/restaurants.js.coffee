@@ -48,6 +48,8 @@ ready = ->
   $(document).on 'click', '.restaurants-list__item-link', ->
     id = $(this).closest('.restaurants-list__item').data().id
     GRM.showInfo(id)
+    $('.js-restaurant-detail').remove()
+    $('.js-restaurant-loading').show()
     false
 
 $(document).ready(ready)

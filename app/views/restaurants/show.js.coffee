@@ -1,2 +1,3 @@
-$('.restaurants__detail').html("<%=j render 'restaurant', restaurant: @restaurant %>")
+$('.restaurants__detail').append("<%=j render 'restaurant', restaurant: @restaurant %>")
+$('.js-restaurant-loading').hide()
 

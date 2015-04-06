@@ -8,3 +8,5 @@
     #map-canvas-index
     %hide#restaurants-data{data: { restaurants: restaurants_to_data(@restaurants) }}
     .restaurants__detail.js-nicescroll
+      .restaurants__loading.js-restaurant-loading
+        = image_tag '/ajax-loader.gif'

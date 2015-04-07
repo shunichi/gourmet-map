@@ -48,8 +48,7 @@ ready = ->
         $.ajax
           dataType: 'script'
           url: r.url
-    zoom = map.getZoom()
-    map.setZoom( if zoom > 17 then 17 else zoom )
+    map.setZoom(17)
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

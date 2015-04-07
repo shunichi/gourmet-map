@@ -14,6 +14,7 @@
           .navbar-header
             = link_to 'グルメマップ', root_path, class: 'navbar-brand'
           %ul.nav.navbar-nav.navbar-right
+            %li= link_to 'タグ一覧', tags_path
             - if user_signed_in?
               %li= link_to 'お店を登録', new_restaurant_path
               %li.dropdown

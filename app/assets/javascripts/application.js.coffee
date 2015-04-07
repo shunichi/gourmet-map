@@ -7,7 +7,7 @@
 #= require vendor
 #= require_tree .
 
-window.GRM = {}
+window.GRM ?= {}
 
 Growlyflash.defaults.align = 'center'
 Growlyflash.defaults.delay = 6000

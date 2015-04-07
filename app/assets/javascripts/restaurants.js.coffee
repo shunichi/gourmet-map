@@ -1,24 +1,35 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+window.GRM ?= {}
+
+GRM.showInfo = (markerId) ->
+  markers = $('#map-canvas-index').gmap 'get', 'markers'
+  marker = markers[markerId]
+  $(marker).triggerEvent 'click' if marker?
+
+showLocation = (elm, loc, marker) ->
+  elm.gmap 'search', { location: loc }, (results, status) ->
+    if status == 'OK'
+      marker.setTitle results[0].formatted_address
+      elm.gmap 'openInfoWindow', { content: marker.getTitle() }, marker
+
+addMarker = (elm, latlng, name, id, bounds = false) ->
+  m = elm.gmap 'addMarker',
+    id: id
+    position: latlng
+    draggable: elm.hasClass('editable')
+    bounds: bounds
+  .dragend (event) ->
+    latLng = this.getPosition()
+    $('#restaurant_latitude').val(latLng.lat())
+    $('#restaurant_longitude').val(latLng.lng())
+
+$(document).on 'click', '.restaurants-list__item-link', ->
+  id = $(this).closest('.restaurants-list__item').data().id
+  GRM.showInfo(id)
+  $('.js-restaurant-detail').remove()
+  $('.js-restaurant-loading').show()
+  false
 
 ready = ->
-  showLocation = (elm, loc, marker) ->
-    elm.gmap 'search', { location: loc }, (results, status) ->
-      if status == 'OK'
-        marker.setTitle results[0].formatted_address
-        elm.gmap 'openInfoWindow', { content: marker.getTitle() }, marker
-  addMarker = (elm, latlng, name, id, bounds = false) ->
-    m = elm.gmap 'addMarker',
-      id: id
-      position: latlng
-      draggable: elm.hasClass('editable')
-      bounds: bounds
-    .dragend (event) ->
-      latLng = this.getPosition()
-      $('#restaurant_latitude').val(latLng.lat())
-      $('#restaurant_longitude').val(latLng.lng())
-
   $('#map-canvas').gmap({zoom: 17, scrollwheel: false}).bind 'init', (event, map) ->
     self = $(this)
     data = self.data()
@@ -39,18 +50,6 @@ ready = ->
           url: r.url
     zoom = map.getZoom()
     map.setZoom( if zoom > 17 then 17 else zoom )
-
-  GRM.showInfo = (markerId) ->
-    markers = $('#map-canvas-index').gmap 'get', 'markers'
-    marker = markers[markerId]
-    $(marker).triggerEvent 'click' if marker?
-
-  $(document).on 'click', '.restaurants-list__item-link', ->
-    id = $(this).closest('.restaurants-list__item').data().id
-    GRM.showInfo(id)
-    $('.js-restaurant-detail').remove()
-    $('.js-restaurant-loading').show()
-    false
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

@@ -22,10 +22,15 @@ addMarker = (elm, latlng, name, id, bounds = false) ->
     $('#restaurant_latitude').val(latLng.lat())
     $('#restaurant_longitude').val(latLng.lng())
 
+loadRestaurantDetail = (url)->
+  $('.js-restaurant-detail').remove()
+  $.ajax
+    dataType: 'script'
+    url: url
+
 $(document).on 'click', '.restaurants-list__item-link', ->
   id = $(this).closest('.restaurants-list__item').data().id
   GRM.showInfo(id)
-  $('.js-restaurant-detail').remove()
   $('.js-restaurant-loading').show()
   false
 
@@ -45,10 +50,7 @@ ready = ->
       marker = addMarker self, latlng, content, r.id, true
       marker.click (event) ->
         self.gmap 'openInfoWindow', { content: content }, marker
-        $.ajax
-          dataType: 'script'
-          url: r.url
-    map.setZoom(17)
+        loadRestaurantDetail(r.url)
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

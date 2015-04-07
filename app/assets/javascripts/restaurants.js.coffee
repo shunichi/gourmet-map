@@ -51,6 +51,7 @@ ready = ->
       marker.click (event) ->
         self.gmap 'openInfoWindow', { content: content }, marker
         loadRestaurantDetail(r.url)
+    map.setZoom(17)
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

@@ -1,7 +1,8 @@
 !!! 5
+- page_title = ENV['PAGE_TITLE'] || "グルメマップ"
 %html
   %head
-    %title グルメマップ
+    %title= page_title
     = growlyflash_static_notices
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=true"
@@ -12,7 +13,7 @@
       %nav.navbar.navbar-default{role:'navigation'}
         .container-fluid
           .navbar-header
-            = link_to 'グルメマップ', root_path, class: 'navbar-brand'
+            = link_to page_title, root_path, class: 'navbar-brand'
           %ul.nav.navbar-nav.navbar-right
             %li= link_to 'タグ一覧', tags_path
             - if user_signed_in?

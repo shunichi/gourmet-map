@@ -1,6 +1,11 @@
 layout = ->
+  ajustMapHeight()
   fitToWindowHeight($('.restaurants__sidebar'))
   fitToWindowHeight($('.restaurants__detail'))
+
+ajustMapHeight = ->
+  h = $(window).height() - $('#map-canvas-index').offset().top
+  $('#map-canvas-index').height(h * 0.5)
 
 fitToWindowHeight = ($elem) ->
   if $elem.length > 0

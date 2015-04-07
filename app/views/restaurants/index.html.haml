@@ -4,9 +4,9 @@
       %ul.restaurants-list
         - @restaurants.each do |restaurant|
           = render 'restaurants/list_item', restaurant: restaurant
-  .restaurants__main
+  .restaurants__main.js-nicescroll
     #map-canvas-index
     %hide#restaurants-data{data: { restaurants: restaurants_to_data(@restaurants) }}
-    .restaurants__detail.js-nicescroll
+    .restaurants__detail
       .restaurants__loading.js-restaurant-loading
         = image_tag '/ajax-loader.gif'

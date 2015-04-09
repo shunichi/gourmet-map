@@ -24,6 +24,7 @@ addMarker = (elm, latlng, name, id, bounds = false) ->
 
 loadRestaurantDetail = (url)->
   $('.js-restaurant-detail').remove()
+  $('.js-restaurant-loading').show()
   $.ajax
     dataType: 'script'
     url: url
@@ -31,7 +32,6 @@ loadRestaurantDetail = (url)->
 $(document).on 'click', '.restaurants-list__item-link', ->
   id = $(this).closest('.restaurants-list__item').data().id
   GRM.showInfo(id)
-  $('.js-restaurant-loading').show()
   false
 
 ready = ->

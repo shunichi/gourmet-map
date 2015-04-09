@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, except: %i(index show)
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.order(updated_at: :desc)
     @restaurants = @restaurants.tagged_with(params[:tag]) if params[:tag]
   end
 

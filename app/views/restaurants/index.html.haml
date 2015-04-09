@@ -1,7 +1,10 @@
 .restaurants__container
   .restaurants__sidebar
     .restaurants__filter-description
-      = "『#{@filter_tag}』で絞り込み中" if @filter_tag.present?
+      - if @filter_tag.present?
+        店舗数: #{@restaurants.count}件（『#{@filter_tag}』で絞り込み中）
+      - else
+        店舗数: #{@restaurants.count}件
     .restaurants__restaurants-list-container.js-nicescroll
       .restaurants__restaurants-list
         %ul.restaurants-list

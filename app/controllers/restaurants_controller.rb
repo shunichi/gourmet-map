@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.order(updated_at: :desc)
     @restaurants = @restaurants.tagged_with(params[:tag]) if params[:tag]
+    @filter_tag = params[:tag]
   end
 
   def show

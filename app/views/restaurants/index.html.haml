@@ -1,9 +1,12 @@
 .restaurants__container
-  .restaurants__sidebar.js-nicescroll
-    .restaurants__restaurants_list
-      %ul.restaurants-list
-        - @restaurants.each do |restaurant|
-          = render 'restaurants/list_item', restaurant: restaurant
+  .restaurants__sidebar
+    .restaurants__filter-description
+      = "『#{@filter_tag}』で絞り込み中" if @filter_tag.present?
+    .restaurants__restaurants-list-wrapper.js-nicescroll
+      .restaurants__restaurants-list
+        %ul.restaurants-list
+          - @restaurants.each do |restaurant|
+            = render 'restaurants/list_item', restaurant: restaurant
   .restaurants__main.js-nicescroll
     #map-canvas-index
     %hide#restaurants-data{data: { restaurants: restaurants_to_data(@restaurants) }}

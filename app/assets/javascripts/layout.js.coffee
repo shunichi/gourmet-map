@@ -1,6 +1,6 @@
 layout = ->
   ajustMapHeight()
-  fitToWindowHeight($('.restaurants__sidebar'))
+  fitToWindowHeight($('.restaurants__restaurants-list-container'))
   fitToWindowHeight($('.restaurants__detail'))
 
 ajustMapHeight = ->

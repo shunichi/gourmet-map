@@ -2,7 +2,7 @@
   .restaurants__sidebar
     .restaurants__filter-description
       = "『#{@filter_tag}』で絞り込み中" if @filter_tag.present?
-    .restaurants__restaurants-list-wrapper.js-nicescroll
+    .restaurants__restaurants-list-container.js-nicescroll
       .restaurants__restaurants-list
         %ul.restaurants-list
           - @restaurants.each do |restaurant|

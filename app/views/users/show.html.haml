@@ -1,0 +1,20 @@
+.user__name= @user.name
+.user__reviews-count
+  レビュー
+  %span.user__reviews-count-number #{@user.reviews.count}
+  件
+%ul.users-reviews
+  - @user.reviews.order(updated_at: :desc).each do |review|
+    %li.users-review
+      = link_to review.restaurant do
+        .users-review__restaurant-name
+          = review.restaurant.name
+      .users-review__content
+        = markdown(review.body)
+      .users-review__detail
+        %span.users_reivew__created_at
+          作成日:
+          = l review.created_at.to_date
+        %span.users-review__updated_at
+          更新日:
+          = l review.updated_at.to_date

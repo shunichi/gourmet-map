@@ -1,0 +1,7 @@
+%li.user
+  = link_to user do
+    .user__name= user.name
+  .user__review-count
+    レビュー
+    %span.user__review-count-number #{user.reviews_count}
+    件

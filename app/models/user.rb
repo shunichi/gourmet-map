@@ -6,6 +6,16 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, length: { maximum: 16 }
   validate :allowed_email
 
+  mount_uploader :image, ImageUploader
+
+  def image_url
+    image.present? ? image.url : '/noimage.png'
+  end
+
+  def thumnail_url
+    image.present? ? image.thumb.url : '/noimage.png'
+  end
+
   def allowed_email
     email = self.email.downcase
     if ENV['ADMIN_EMAILS']
@@ -19,5 +29,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-
 end

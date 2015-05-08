@@ -1,8 +1,10 @@
-.user__name= @user.name
-.user__reviews-count
-  レビュー
-  %span.user__reviews-count-number #{@user.reviews.count}
-  件
+.user__header
+  = image_tag @user.image_url, class: 'user__image'
+  .user__name= @user.name
+  .user__reviews-count
+    レビュー
+    %span.user__reviews-count-number #{@user.reviews.count}
+    件
 %ul.users-reviews
   - @user.reviews.order(updated_at: :desc).each do |review|
     %li.users-review

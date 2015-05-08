@@ -1,0 +1,9 @@
+%h2
+  プロフィール設定
+= simple_form_for(current_user, url: profile_path, html: { method: :put }) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, required: true, hint: "最長16文字"
+    = f.input :image, label: 'アイコン画像'
+  .form-actions
+    = f.button :submit

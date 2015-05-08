@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'restaurants#index'
   devise_for :users
+  resource :profile, only: %i(edit update)
   resources :users, only: %i(index show)
   resources :restaurants do
     resources :reviews, only: %i(create update destroy)

@@ -6,6 +6,7 @@
     = f.input :password, required: true, hint: ("最短#{@minimum_password_length}文字" if @validatable)
     = f.input :password_confirmation, required: true
     = f.input :name, required: true, hint: "最長32文字"
+    = f.input :image, label: 'アイコン画像'
   .form-actions
     = f.button :submit, "Sign up"
 = render "devise/shared/links"

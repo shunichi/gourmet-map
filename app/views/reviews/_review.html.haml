@@ -3,8 +3,10 @@
     .reviews__review-body
       = markdown(review.body)
     .reviews__review-user-container
-      %span.reviews__review-user-name
-        = review.user.name
+      = link_to review.user do
+        = image_tag review.user.image_url, class: 'reviews__review-user-image'
+        %span.reviews__review-user-name
+          = review.user.name
       %span.reviews__review-created-time
         \| 投稿時間: #{l review.created_at} |
       - if review.user == current_user

@@ -7,4 +7,8 @@ Rails.application.routes.draw do
     resources :reviews, only: %i(create update destroy)
   end
   resources :tags, only: %i(index)
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

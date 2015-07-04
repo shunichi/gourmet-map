@@ -41,7 +41,7 @@ group :development do
   gem 'hirb-unicode'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'letter_opener'
+  gem 'letter_opener_web'
   gem 'quiet_assets'
   gem 'bullet'
   gem 'erb2haml'

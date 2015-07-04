@@ -1,0 +1,21 @@
+%html
+  %head
+    = stylesheet_link_tag 'email'
+    :sass
+      .bg
+
+  %body
+    .bg{style:"background-image: url(#{image_url('/images/paper.png')})"}
+      .container
+        .header
+          = ENV['PAGE_TITLE']
+        .main
+          .title
+            新しいお店の情報が登録されました！
+          .restaurant-name
+            = @restaurant.name
+            = link_to 'ブラウザで見る', restaurant_url(@restaurant), class: 'website-link'
+          .content.markdown
+            = markdown(@restaurant.description)
+          .map
+            = image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@restaurant.latitude},#{@restaurant.longitude}&size=568x300&zoom=17&markers=#{@restaurant.latitude},#{@restaurant.longitude}"

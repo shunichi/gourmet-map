@@ -23,6 +23,7 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
+        UserMailer.restaurant_created(@restaurant).deliver
         format.html { redirect_to @restaurant, notice: '店の情報を登録しました' }
       else
         format.html { render :new }

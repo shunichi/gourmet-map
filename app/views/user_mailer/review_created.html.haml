@@ -1,0 +1,18 @@
+%html
+  %head
+    = stylesheet_link_tag 'email'
+  %body
+    .bg{style:"background-image: url(#{image_url('/images/paper.png')})"}
+      .container
+        .header
+          = ENV['PAGE_TITLE']
+        .main
+          .title
+            = image_tag @review.user.image_url, class: 'user-image'
+            %span.title-text
+              #{@review.user.name}さんが新しいレビューを投稿しました！
+          .restaurant-name
+            = @review.restaurant.name
+            = link_to 'ブラウザで見る', restaurant_url(@review.restaurant), class: 'website-link'
+          .content.markdown
+            = markdown(@review.body)

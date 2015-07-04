@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     respond_to do |format|
       if @review.save
+        UserMailer.review_created(@review).deliver
         flash[:notice] = 'レビューを登録しました'
         format.js { render }
       else

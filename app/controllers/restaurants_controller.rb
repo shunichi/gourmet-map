@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: %i(index show)
+  before_action :authenticate_admin!, only: %i(destroy)
 
   def index
     @restaurants = Restaurant.order(updated_at: :desc)
@@ -44,7 +45,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: '店の情報を削除しました' }
+      format.html { redirect_to root_url, notice: '店の情報を削除しました' }
     end
   end
 

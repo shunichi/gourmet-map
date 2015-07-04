@@ -6,6 +6,8 @@
       = link_to restaurant.name, restaurant, class: 'restaurants__detail-name'
       - if user_signed_in?
         = link_to '編集', edit_restaurant_path(@restaurant), class: 'btn btn-warning btn-xs'
+      - if current_user.try(:admin?)
+        = link_to '削除', restaurant_path(@restaurant), method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: '削除してもいいですか？'}
       .restaurants__detail-tags
         %span.restaurants__tags-label= icon('tags')
         - restaurant.tag_list.each do |tag|

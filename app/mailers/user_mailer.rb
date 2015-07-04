@@ -4,7 +4,6 @@ class UserMailer < ActionMailer::Base
 
   def restaurant_created(restaurant)
     @restaurant = restaurant
-    # mail(bcc: User.pluck(:email), subject: "[#{ENV['PAGE_TITLE']}] 新しいお店の情報が登録されました！" )
-    mail(bcc: User.admin.pluck(:email), subject: "[#{ENV['PAGE_TITLE']}] 新しいお店の情報が登録されました！" )
+    mail(bcc: User.pluck(:email), subject: "[#{ENV['PAGE_TITLE']}] 新しいお店の情報が登録されました！" )
   end
 end

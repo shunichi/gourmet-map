@@ -28,6 +28,8 @@ gem 'fog'
 gem 'redcarpet'
 gem 'nicescroll-rails'
 gem 'growlyflash', '~> 0.6.0'
+gem 'premailer-rails'
+gem 'newrelic_rpm'
 
 group :development do
   # pry 0.10.0 has compatibility issue with hirb.
@@ -64,4 +66,5 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'puma'
 end

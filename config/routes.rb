@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resource :profile, only: %i(edit update)
   resources :users, only: %i(index show)
   resources :restaurants do
-    resources :reviews, only: %i(create update destroy)
+    resources :reviews, only: %i(create update destroy) do
+      resources :comments
+    end
   end
   resources :tags, only: %i(index)
 

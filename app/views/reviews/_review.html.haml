@@ -1,20 +1,25 @@
-%li.reviews__review-list-item{data: {review_id: review.id}}
-  .reivews__review-main.js-toggle-edit-review
-    .reviews__review-body
-      = markdown(review.body)
-    .reviews__review-user-container
-      = link_to review.user do
-        = image_tag review.user.image_url, class: 'reviews__review-user-image'
-        %span.reviews__review-user-name
-          = review.user.name
-      %span.reviews__review-created-time
-        \| 投稿時間: #{l review.created_at} |
-      - if review.user == current_user
-        = link_to '編集', '#', class: 'btn btn-link btn-sm js-edit-review-link'
-        = link_to '削除', [review.restaurant, review], method: :delete, remote: true, class: 'btn btn-link btn-sm', data: {confirm: '削除してもいいですか？' }
-  .reviews__review-edit-form.js-toggle-edit-review
-    = simple_form_for [review.restaurant, review], remote: true do |f|
-      = f.input :body, label: false, input_html: { class: 'js-review-input', rows: 5 }
-      = f.button :submit, '保存', class: 'btn btn-primary btn-sm', data: { disable_with: '送信中' }
-      = link_to 'キャンセル', '#', class: 'btn btn-default btn-sm js-cancel-edit-review-link'
-      .hide.js-review-body>= preserve(html_escape(review.body))
+.panel.panel-default.reviews__review-list-item.js-review{data: {review_id: review.id}}
+  .panel-body
+    .reivews__review-main.js-toggle-edit-review
+      .reviews__review-body
+        = markdown(review.body)
+      .reviews__review-user-container
+        = link_to review.user do
+          = image_tag review.user.image_url, class: 'reviews__review-user-image'
+          %span.reviews__review-user-name
+            = review.user.name
+        %span.reviews__review-created-time
+          \| 投稿時間: #{l review.created_at} |
+        - if review.user == current_user
+          = link_to '編集', '#', class: 'btn btn-link btn-sm js-edit-review-link'
+          = link_to '削除', [review.restaurant, review], method: :delete, remote: true, class: 'btn btn-link btn-sm', data: {confirm: '削除してもいいですか？' }
+    .reviews__review-edit-form.js-toggle-edit-review
+      = simple_form_for [review.restaurant, review], remote: true do |f|
+        = f.input :body, label: false, input_html: { class: 'js-review-input', rows: 5 }
+        = f.button :submit, '保存', class: 'btn btn-primary btn-sm', data: { disable_with: '送信中' }
+        = link_to 'キャンセル', '#', class: 'btn btn-default btn-sm js-cancel-edit-review-link'
+        .hide.js-review-body>= preserve(html_escape(review.body))
+  .panel-footer.review-comments.js-review-comments
+    - review.comments.each do |comment|
+      = render 'comments/comment', comment: comment
+    = render 'comments/form', review: review

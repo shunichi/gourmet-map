@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
 
   private
   def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant = Restaurant.includes(reviews: :comments).find(params[:restaurant_id])
   end
 
   def set_review

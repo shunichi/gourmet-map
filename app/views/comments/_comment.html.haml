@@ -1,0 +1,7 @@
+.review-comment.js-review-comment{data: {comment_id: comment.id}}
+  .well
+    .review-comment__user
+      = image_tag comment.user.image_url, class: 'review-comment__user-image'
+      = comment.user.name
+    .review-comment__content
+      = simple_format comment.comment

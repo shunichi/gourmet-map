@@ -15,20 +15,30 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'compass-rails'
-gem 'simple_form'
+
 gem 'default_value_for'
-gem 'acts-as-taggable-on'
+
+gem 'simple_form'
+gem 'redcarpet'
+
 gem 'devise'
-gem 'rails-i18n'
-gem 'devise-i18n'
-gem 'dotenv-rails'
+
+gem 'premailer-rails'
+
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
-gem 'redcarpet'
+
+gem 'acts-as-taggable-on'
+gem 'acts_as_commentable'
+
 gem 'nicescroll-rails'
 gem 'growlyflash', '~> 0.6.0'
-gem 'premailer-rails'
+
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'dotenv-rails'
+
 gem 'newrelic_rpm'
 
 group :development do

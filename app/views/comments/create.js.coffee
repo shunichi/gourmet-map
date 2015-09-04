@@ -1,0 +1,1 @@
+$('.js-review[data-review-id=<%= @review.id %>] .js-review-comments').append('<%= j render 'comments/comment', comment: @comment %>')

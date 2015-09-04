@@ -1,1 +1,1 @@
-$('.reviews__review-list-item[data-review-id=<%= @review.id %>]').remove()
+$('.js-review[data-review-id=<%= @review.id %>]').remove()

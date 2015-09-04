@@ -21,7 +21,7 @@
     - if user_signed_in?
       %p.restaurants__detail-reviews-header
         レビュー:
-      %ul.restaurants__detail-reviews{data: {restaurant_id: restaurant.id}}
+      .restaurants__detail-reviews{data: {restaurant_id: restaurant.id}}
         - restaurant.reviews.includes(:user).order(created_at: :desc).each do |review|
           = render 'reviews/review', review: review
       - new_review = restaurant.reviews.build(user_id: current_user.id)

@@ -30,6 +30,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (3.4.2)
       activerecord (>= 3.2, < 5)
+    acts_as_commentable (4.0.2)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
@@ -361,6 +362,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  acts_as_commentable
   better_errors
   binding_of_caller
   bootstrap-sass
@@ -409,4 +411,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
 
 BUNDLED WITH
-   1.10.5
+   1.10.6

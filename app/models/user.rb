@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :reviews
+  has_many :comments
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

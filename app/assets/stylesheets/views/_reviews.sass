@@ -1,16 +1,31 @@
+.reviews__review-heading
+  position: relative
 .reviews__review-user-container
   text-align: right
 
 .reviews__review-user-image
-  width: 40px
-  height: 40px
+  width: 35px
+  height: 35px
   +border-radius(50%)
+  vertical-align: bottom
 
 .reviews__review-user-name
   color: #444
+  font-size: 20px
+  vertical-align: baseline
+
+.reviews__review-user-name-postfix
+  color: #444
+  font-size: 16px
+  vertical-align: baseline
 
 .reviews__review-created-time
+  position: absolute
+  bottom: 12px
+  right: 15px
   color: #444
+  a
+    margin-right: 5px
 
 .reviews__review-edit-form
   display: none

@@ -3,5 +3,8 @@
     .review-comment__user
       = image_tag comment.user.image_url, class: 'review-comment__user-image'
       = comment.user.name
+    - if comment.user == current_user
+      .review-comment__action-links
+        = link_to icon('trash'), [review.restaurant, review, comment], method: :delete, remote: true, data: {confirm: 'コメントを削除してもいいですか？'}
     .review-comment__content
       = simple_format comment.comment

@@ -1,5 +1,5 @@
 .review-comment-form
   .review-comment-form__prompt
   = simple_form_for [review.restaurant, review, Comment.new], remote: true do |f|
-    = f.input :comment, label: false
+    = f.input :comment, label: false, input_html: {class: 'js-new-review-comment-textarea'}
     = f.submit 'コメントする', class: 'btn btn-primary btn-sm', data: {disable_with: '送信中...'}

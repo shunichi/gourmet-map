@@ -1,0 +1,10 @@
+- new_comment ||= false
+.comment
+  .comment__user
+    = image_tag comment.user.image_url, class: 'user-image'
+    = comment.user.name
+    - if new_comment
+      %span.comment__new
+        NEW
+  .comment__content.markdown
+    = markdown(comment.comment)

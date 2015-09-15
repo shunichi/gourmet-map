@@ -1,0 +1,29 @@
+%html
+  %head
+    = stylesheet_link_tag 'email'
+  %body
+    .bg{style:"background-image: url(#{image_url('/images/paper.png')})"}
+      .container
+        .header
+          = ENV['PAGE_TITLE']
+        .main
+          .title
+            = image_tag @comment.user.image_url, class: 'user-image'
+            %span.title-text
+              #{@comment.user.name}さんが新しいコメントを投稿しました！
+          .new-comment.markdown
+            = markdown(@comment.comment)
+          .restaurant-name
+            = @review.restaurant.name
+            = link_to 'ブラウザで見る', restaurant_url(@review.restaurant), class: 'website-link'
+          .review.markdown
+            .reveiw__user
+              = image_tag @review.user.image_url, class: 'user-image'
+              = @review.user.name
+              さんのレビュー
+            .review__content
+              = markdown(@review.body)
+          - previous_comments = @review.comments.includes(:user).where('id < ? ', @comment.id).reorder(created_at: :desc).limit(3)
+          - previous_comments.reverse_each do |comment|
+            = render 'comment', comment: comment
+          = render 'comment', comment: @comment, new_comment: true

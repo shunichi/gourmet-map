@@ -11,4 +11,11 @@ class UserMailer < ActionMailer::Base
     @review = review
     mail(bcc: User.pluck(:email), subject: "[#{ENV['PAGE_TITLE']}] 「#{@review.restaurant.name}」のレビューが投稿されました！")
   end
+
+  def comment_created(comment)
+    @review = comment.commentable
+    @comment = comment
+    mail(bcc: User.pluck(:email), subject: "[#{ENV['PAGE_TITLE']}] #{@review.user.name}さんの「#{@review.restaurant.name}」のレビューにコメントが投稿されました！")
+  end
+
 end

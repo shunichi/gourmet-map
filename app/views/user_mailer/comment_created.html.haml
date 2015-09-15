@@ -11,8 +11,6 @@
             = image_tag @comment.user.image_url, class: 'user-image'
             %span.title-text
               #{@comment.user.name}さんが新しいコメントを投稿しました！
-          .new-comment.markdown
-            = markdown(@comment.comment)
           .restaurant-name
             = @review.restaurant.name
             = link_to 'ブラウザで見る', restaurant_url(@review.restaurant), class: 'website-link'

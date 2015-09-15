@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
+        UserMailer.comment_created(@comment).deliver
         format.js
       else
         format.js { render js: 'alert("コメント作成失敗しました");' }

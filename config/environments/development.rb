@@ -56,4 +56,6 @@ Rails.application.configure do
   end
 
   config.sass.preferred_syntax = :sass
+
+  config.action_mailer.preview_path = "#{Rails.root}/test/mailers/previews"
 end

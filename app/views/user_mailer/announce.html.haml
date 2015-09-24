@@ -1,0 +1,14 @@
+%html
+  %head
+    = stylesheet_link_tag 'email'
+  %body
+    .bg{style:"background-image: url(#{image_url('/images/paper.png')})"}
+      .container
+        .header
+          = ENV['PAGE_TITLE']
+        .main
+          .title
+            お知らせ
+          .content.markdown
+            = markdown(@content)
+

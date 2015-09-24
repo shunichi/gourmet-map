@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
   resources :tags, only: %i(index)
 
+  namespace :admin do
+    resource :announce, only: %i(new create)
+  end
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

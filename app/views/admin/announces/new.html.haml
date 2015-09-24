@@ -1,0 +1,10 @@
+.row
+  .col-sm-offset-3.col-sm-6
+    .page-header
+      %h1
+        アナウンスメールの送信
+  .col-sm-offset-3.col-sm-6
+    = simple_form_for @announce, url: admin_announce_path do |f|
+      = f.input :subject, as: :string, label: 'タイトル'
+      = f.input :body, as: :text, input_html: {rows: 10}, label: '本文'
+      = f.submit '送信'

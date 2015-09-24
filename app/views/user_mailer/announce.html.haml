@@ -8,7 +8,7 @@
           = ENV['PAGE_TITLE']
         .main
           .title
-            お知らせ
+            = @announce.subject
           .content.markdown
-            = markdown(@content)
+            = markdown(@announce.body)
 

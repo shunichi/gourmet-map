@@ -18,8 +18,8 @@ class UserMailer < ActionMailer::Base
     mail(bcc: User.pluck(:email), subject: "[#{ENV['PAGE_TITLE']}] #{@review.user.name}さんの「#{@review.restaurant.name}」のレビューにコメントが投稿されました！")
   end
 
-  def announce(subject, content)
-    @content = content
-    mail(bcc: User.pluck(:email), subject: "[#{ENV['PAGE_TITLE']}] #{subject}")
+  def announce(announce)
+    @announce = announce
+    mail(bcc: User.pluck(:email), subject: "[#{ENV['PAGE_TITLE']}] #{announce.subject}")
   end
 end
